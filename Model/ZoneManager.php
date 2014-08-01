@@ -10,7 +10,7 @@
 namespace Presta\CMSCoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Presta\CMSCoreBundle\Doctrine\Phpcr\Zone;
+use Presta\CMSCoreBundle\Doctrine\Phpcr\Zone as ZoneDoc;
 use Sonata\AdminBundle\Model\ModelManagerInterface;
 
 /**
@@ -40,7 +40,7 @@ class ZoneManager
     }
 
     /**
-     * @param Zone  $zone
+     * @param ZoneDoc $zone
      * @param array $blockIds
      */
     public function updateZoneBlocks($zone, $blockIds)
