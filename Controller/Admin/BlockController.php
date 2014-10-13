@@ -133,9 +133,9 @@ class BlockController extends CRUDController
         $block->setAdminMode();
 
         /* Determine the zone containing this block */
-        $parent = $block->getParentDocument();
+        $parent = $block->getParentObject();
         while ($parent instanceof Block) {
-            $parent = $parent->getParentDocument();
+            $parent = $parent->getParentObject();
         }
 
         /* Use the containing page as current page */
@@ -198,7 +198,7 @@ class BlockController extends CRUDController
 
         if ($this->isXmlHttpRequest()) {
             $data   = array('result' => 'ok', 'action' => 'delete', 'block' => $block->getId());
-            $parent = $block->getParentDocument();
+            $parent = $block->getParentObject();
 
             if ($parent instanceof Zone) {
                 $data['zone'] = $parent->getId();
